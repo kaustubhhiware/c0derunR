@@ -1,2 +1,4 @@
 Django
 requests
+gunicorn
+whitenoise
