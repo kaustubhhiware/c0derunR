@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>c0derunR</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="c0derunR, online, compiler, terminal, bing, gesture, code, Gaurav Sahu, demfier, Surya Midatala, kingofools, Kaustubh Hiware, IIT Kharagpur, Programming, kaustubhhiware" />
+  <meta name="author" content="Gaurav, Surya aur Kaustubh" />
+  <link rel="shortcut icon" href="/static/img/logo.ico">
+
+  <link href='/static/css/mystyle.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <style>
+    #title-main {
+        font-family:"Bree Serif";
+        font-size:1.2em;
+        color:#777;
+        text-decoration:none;
+        vertical-align:baseline;
+        line-height: 20px;
+    }
+
+    .theme
+    {
+        background-color: #009999 !important;
+    }
+  </style>
+</head>
+<div class="card-panel yellow lighten-2">.</div>
+
+ <body>
+
+   <script>
+   	function eraseText() {
+    document.getElementById("sourcecode").value = "";
+    }
+   </script>
+
+   <!-- Fixed navbar -->
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <img src="static/img/logo.ico" height="50" width="50"> &nbsp; &nbsp; &nbsp;
+       </div>
+       <div id="navbar" class="collapse navbar-collapse">
+
+        <a href="" id="title-main"style="">c0derunR</a>
+        <!-- <ul class="nav navbar-nav">
+
+           <li class="active"><a href="">c0derunR</a></li>
+       </ul>-->
+        <ul class="nav navbar-nav" style="float:right;">
+           <li><a  href="https://github.com/kaustubhhiware/c0derunR">Source</a></li>
+           <!-- <li><a  href="#">Online Code Compiler & Player</a></li> -->
+           <!-- Isko neeche bhi daal sakte hai-->
+           <li class="dropdown">
+             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="https://github.com/demfier">Gaurav</a></li>
+               <li><a href="https://github.com/kaustubhhiware">Kaustubh</a></li>
+               <li><a href="https://github.com/kingofools">Surya</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+
+<style>
+h2, .waves-effect, .nav, .form-group, .table, .page-footer {
+    font-family: "Bree Serif" !important;
+}
+</style>
+
+ <div class="container">
+   <h2>c<style="font-family:"";">0</style>derunR</h2>
+     <form class="lang" method="POST">
+          {% csrf_token %}
+
+          <fieldset class="form-group">
+            <label for="lang">Select Language</label>
+            <select class="form-control" name="lang" id="lang">
+              <option value=C selected="selected">C (gcc 4.8.4)</option>
+              <option value=CPP>C++ (g++ 4.8.4)</option>
+              <option value=CSHARP>C# (mono 3.2.8)</option>
+              <option value=GO>Go (go 1.4.2)</option>
+              <option value=HASKELL>Haskell (ghc 7.6.3)</option>
+              <option value=JAVA>Java (openjdk 1.7.0_09)</option>
+              <option value=LISP>Lisp (csc 4.8.0.5)</option>
+              <option value=OBJECTIVEC>Objective-C (clang 3.3)</option>
+              <option value=PASCAL>Pascal (fpc 2.6.2)</option>
+              <option value=PERL>Perl (perl 5.18.2)</option>
+              <option value=PHP>PHP (php 5.5.9)</option>
+              <option value=PYTHON>Python (python 2.7.6)</option>
+              <option value=RUBY>Ruby (ruby 2.1.1)</option>
+              <option value=R>R (RScript 3.0.2)</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <label for="code-form">Code</label>
+            <textarea class="form-control" id="sourcecode" rows="15"></textarea>
+
+          </fieldset>
+
+       <button type="submit" id="submit" class="waves-effect waves-light btn theme">Run</button>
+       <button value="Clear" class="waves-effect waves-light btn theme" onclick="javascript:eraseText();">Reset</button>
+
+     </form>
+ </div>
+ <br>
+
+<!--Output Table: Start-->
+ <div class="container">
+  <table class="table table-striped hidden" id="table">
+    <thead>
+      <tr>
+        <th>Output</th>
+        <th>Errors</th>
+        <th>Compile Status</th>
+        <th>Time (sec)</th>
+        <th>Memory (KB)</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<!-- Formal footer -->
+<div class="footer" id="whoami">
+    <div class="overlayer">
+    <div class="container">
+        <div class="row support">
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-3">
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+<!-- Div footer has background-image -->
+        <div class="row">
+            <div class="credits">
+                &copy; 2016 c0derunR, made with <a href="https://www.youtube.com/watch?v=tojicre_Qe8"  target="_blank"><span class="glyphicon glyphicon-heart" style="color:red;"></span></a>< by <a href="https://github.com/demfier">Gaurav</a>, <a href="https://github.com/kaustubhhiware">Kaustubh</a> and <a href="https://github.com/kingofools">Surya</a>.
+            </div>
+			<!-- What is love-->
+        </div>
+    </div>
+    </div>
+</div>
+<!--Output Table: END -->
+
+<style>
+  mark {
+      background-color: #e67676;
+      color: white;
+  }
+</style>
+
+<!-- <footer class="page-footer teal">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 c0derunR | Made with <3
+    </div>
+  </div>
+</footer> -->
+
+ <script>
+//For getting CSRF token
+function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie != '') {
+         var cookies = document.cookie.split(';');
+         for (var i = 0; i < cookies.length; i++) {
+         var cookie = jQuery.trim(cookies[i]);
+         // Does this cookie string begin with the name we want?
+         if (cookie.substring(0, name.length + 1) == (name + '=')) {
+             cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+             break;
+          }
+     }
+ }
+ return cookieValue;
+}
+
+
+//For doing AJAX post
+ $("#submit").click(function(e) {
+
+   e.preventDefault();
+   var csrftoken = getCookie('csrftoken');
+   //  var lang = $('#lang').val();
+   var e = document.getElementById("lang");
+   var lang = e.options[e.selectedIndex].value;
+   var source = $('#source').val();
+
+   // This is the Ajax post.Observe carefully.
+  //  It is nothing but details of where_to_post,what_to_post
+
+   $.ajax({
+           url : window.location.href, // the endpoint,commonly same url
+           type : "POST", // http method
+           data : { csrfmiddlewaretoken : csrftoken,
+           lang : lang,
+           source : source
+           }, // data sent with the post request
+
+          success: function(json){
+              if(json){
+                  var txt = "";
+
+                  // Output
+                  if(json['run_status']['output']){ txt += "<tr><td>"+json['run_status']['output']+"</td>";}
+                  else {txt += "<tr><td>"+ 'NA' +"</td>";}
+                  // Errors
+                  if(json['errors']){ txt += "<td>" + "<mark>" +json['errors']+ "</mark>" + "</td>";}
+                  else {txt += "<td>"+ 'NA' +"</td>";}
+                  // Compile Status
+                  if(json['compile_status'] != "OK"){ txt += "<td>"+ "<mark>" +json['compile_status']+ "</mark>" +"</td>";}
+                  else if(json['compile_status'] == "OK"){ txt += "<td>" +json['compile_status']+ "</td>";}
+                  else {txt += "<td>"+ 'NA' +"</td>";}
+                  // Time used
+                  if(json['run_status']['time_used']){ txt += "<td>"+json['run_status']['time_used']+"</td>";}
+                  else {txt += "<td>"+ 'NA' +"</td>";}
+                  // Memory used
+                  if(json['run_status']['memory_used']){ txt += "<td>"+json['run_status']['memory_used']+"</td></tr>";}
+                  else {txt += "<td>"+ 'NA' +"</td></tr>";}
+
+                  if(txt != ""){
+                    $("#table").append(txt).removeClass("hidden");
+                  }
+              }
+          },
+          // Display JSON data in table: END
+
+           // handle a non-successful response
+           error : function(xhr,errmsg,err) {
+               // directly append this to planned terminal
+           console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+           }
+    });
+  });
+
+</script>
+
+</body>
+</html>
