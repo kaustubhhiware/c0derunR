@@ -33,12 +33,11 @@
   </style>
 </head>
 <div class="card-panel yellow lighten-2">.</div>
-
  <body>
 
    <script>
    	function eraseText() {
-    document.getElementById("sourcecode").value = "";
+    document.getElementById("output").value = "";
     }
    </script>
 
@@ -57,10 +56,7 @@
        <div id="navbar" class="collapse navbar-collapse">
 
         <a href="" id="title-main"style="">c0derunR</a>
-        <!-- <ul class="nav navbar-nav">
 
-           <li class="active"><a href="">c0derunR</a></li>
-       </ul>-->
         <ul class="nav navbar-nav" style="float:right;">
            <li><a  href="https://github.com/kaustubhhiware/c0derunR">Source</a></li>
            <!-- <li><a  href="#">Online Code Compiler & Player</a></li> -->
@@ -80,12 +76,12 @@
 
 <style>
 h2, .waves-effect, .nav, .form-group, .table, .page-footer {
-    font-family: "Bree Serif" !important;
+    font-family: "Bree Serif";
 }
 </style>
 
  <div class="container">
-   <h2>c<style="font-family:"";">0</style>derunR</h2>
+   <h2>c0derunR</h2>
      <form class="lang" method="POST">
           {% csrf_token %}
 
@@ -101,7 +97,6 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
               <option value=LISP>Lisp (csc 4.8.0.5)</option>
               <option value=OBJECTIVEC>Objective-C (clang 3.3)</option>
               <option value=PASCAL>Pascal (fpc 2.6.2)</option>
-              <option value=PERL>Perl (perl 5.18.2)</option>
               <option value=PHP>PHP (php 5.5.9)</option>
               <option value=PYTHON>Python (python 2.7.6)</option>
               <option value=RUBY>Ruby (ruby 2.1.1)</option>
@@ -111,12 +106,12 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
 
           <fieldset class="form-group">
             <label for="code-form">Code</label>
-            <textarea class="form-control" id="sourcecode" rows="15"></textarea>
+            <textarea class="form-control" id="source" rows="15"></textarea>
 
           </fieldset>
 
-       <button type="submit" id="submit" class="waves-effect waves-light btn theme">Run</button>
-       <button value="Clear" class="waves-effect waves-light btn theme" onclick="javascript:eraseText();">Reset</button>
+       <button type="submit" id="submit" class="waves-effect waves-light btn">Run</button>
+       <button value="Clear" class="waves-effect waves-light btn" onclick="javascript:eraseText();">Reset</button>
 
      </form>
  </div>
@@ -160,7 +155,7 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
 <!-- Div footer has background-image -->
         <div class="row">
             <div class="credits">
-                &copy; 2016 c0derunR, made with <a href="https://www.youtube.com/watch?v=tojicre_Qe8"  target="_blank"><span class="glyphicon glyphicon-heart" style="color:red;"></span></a>< by <a href="https://github.com/demfier">Gaurav</a>, <a href="https://github.com/kaustubhhiware">Kaustubh</a> and <a href="https://github.com/kingofools">Surya</a>.
+                &copy; 2016 c0derunR, made with <a href="https://www.youtube.com/watch?v=tojicre_Qe8"  target="_blank"><span class="glyphicon glyphicon-heart" style="color:red;"></span></a> by <a href="https://github.com/demfier">Gaurav</a>, <a href="https://github.com/kaustubhhiware">Kaustubh</a> and <a href="https://github.com/kingofools">Surya</a>.
             </div>
 			<!-- What is love-->
         </div>
@@ -175,14 +170,6 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
       color: white;
   }
 </style>
-
-<!-- <footer class="page-footer teal">
-  <div class="footer-copyright">
-    <div class="container">
-    © 2017 c0derunR | Made with <3
-    </div>
-  </div>
-</footer> -->
 
  <script>
 //For getting CSRF token

@@ -8,7 +8,6 @@ import requests
 RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
 CLIENT_SECRET = '4dfd962b7931b9b7833159cf6a38dde05f88ef54'
 
-
 def home(request):
     if request.method == 'POST':
         # POST goes here . is_ajax is must to capture ajax requests.
