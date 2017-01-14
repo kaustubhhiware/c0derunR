@@ -30,3 +30,7 @@ def home(request):
             return JsonResponse(r.json(), safe=False)
     # Get goes here
     return render(request, 'init.html')
+
+
+def codeplay(request):
+    return render(request, 'codeplay.html')

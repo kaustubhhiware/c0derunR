@@ -1,0 +1,189 @@
+<!--
+Code.Play Copyright  (c) 2016 Kaustubh Hiware
+
+
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+author - kaustubhhiware
+visit the repo at
+github.com/kaustubhhiware/Code.Play
+
+-->
+<!doctype html>
+<html>
+<head>
+<title>c0derunR</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Static website builder" />
+
+<!--<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-
+ui.min.js"></script>
+-->
+
+<!--code highlight-->
+
+<!--
+<link href="prism.css" rel="stylesheet" type="text/css" />
+<script src="prism.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="highlight/styles/default.css">
+<script src="highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+	online version conflicts with structure
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/highlight.js/9.4.0/styles/default.min.css">
+<script src="http://cdn.jsdelivr.net/highlight.js/9.4.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+ code highlight
+ -->
+
+<script type="text/javascript" src="static/jquery-3.0.0.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="static/css/styles.css">
+</head>
+
+<body>
+<!--
+Images and docs can not be added to codeplayer , so be cautious
+if your html page has static links(like/images/arbit.png ) -
+it is advised to use links(say - https://avatars1.githubusercontent.com/u/11318551?v=3&s=400
+ for example ) in these cases
+
+visit https://highlightjs.org/download/
+ or prismjs.com for code highlight
+
+-->
+
+<div id="container">
+
+	<div id="menuBar">
+
+		<div id="logo">
+			<a href="/" style="text-decoration:none">c0derunR</a>
+		</div>
+
+   <div id="forkMe">
+      <a href="https://github.com/kaustubhhiware/Code.Play">
+        <img src="static/img/fork.png" />
+      </a>
+    </div>
+
+    <div id="counter" style="display:none;"><a href="http://www.easy-hit-counter.com" target="_blank"><img src="http://www.easy-hit-counter.com/counter/?id=59912&style=6" width="83" height="21" border="0" alt="www.easy-hit-counter.com"></a>
+<!--<br><font size="1" face="Arial"><a href="http://www.easy-hit-counter.com" target="_blank">www.easy-hit-counter.com</a></font>
+--></div>
+
+	<div id="RunRun">
+		<button id="OliverQueen"><img src="static/img/play.png" /> Run</button>
+	</div>
+
+	<ul id="Schindler">
+		<li class="toggle selected">HTML</li>
+		<li class="toggle">CSS</li>
+		<li class="toggle">JS</li>
+		<li class="toggle selected" style="border:none;">Result</li>
+	</ul>
+
+	</div>
+
+	<div class="clear"> </div>
+
+	<div class="codeBox" id="HTMLBox">
+
+		<div class="codeLabel">HTML</div>
+		<!--<pre><code class="language-markup">-->
+		<textarea id="htmlCode">
+&lt;body&gt;
+	&lt;!-- Code goes here--&gt;
+
+
+
+	
+&lt;/body&gt;
+		</textarea>
+		<!--</code></pre>-->
+	</div>
+
+	<div class="codeBox" id="CSSBox">
+
+		<div class="codeLabel">Css</div>
+		<!--<pre><code class="language-css">-->
+		<textarea id="cssCode">
+
+		</textarea>
+		<!--</code></pre>-->
+
+	</div>
+
+	<div class="codeBox" id="JSBox">
+
+		<div class="codeLabel">JS</div>
+		<!--<pre><code class="language-javascript">-->
+		<textarea id="jsCode">
+
+		</textarea>
+		<!--</code></pre>-->
+	</div>
+
+	<div class="codeBox" id="ResultBox">
+
+		<div class="codeLabel">Result</div>
+		<iframe id="resultFrame" src=""></iframe>
+
+	</div>
+
+</div>
+
+<!--
+<script src="prism.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+-->
+
+
+<!--This is the main script - Da MVP -->
+<script type="text/javascript">
+
+	var windowHeight=$(window).height();
+	var menuBarHeight=$("#menuBar").height();
+	var codeBoxHeight=windowHeight-menuBarHeight-5;
+
+	$(".codeBox").height(codeBoxHeight+"px");
+
+	$(".toggle").click(function(){
+
+		$(this).toggleClass("selected");
+
+		var activeDiv=$(this).html();
+
+		$("#"+activeDiv+"Box").toggle();
+
+		var useDivs = $(".codeBox").filter(function(){
+
+			return ($(this).css("display")!="none");
+
+		}).length;
+		//filter codeBoxes on basis of a function
+		var width=100/useDivs;
+		$(".codeBox").width(width+"%");
+	});
+
+
+	$("#OliverQueen").click(function(){
+
+		$("iframe").contents().find("html").html(
+			'<style>'+$("#cssCode").val()+'</style>'
+			+$("#htmlCode").val());
+
+		document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());
+		//note -this has a lot of security implications , but since I don't have private info on this
+		//server , it is ok
+	});
+</script>
+</body>
+</html>
