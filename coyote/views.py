@@ -22,13 +22,15 @@ def home(request):
         if request.is_ajax():
             lang = request.POST.get('lang')
             source = request.POST.get('source')
-            data = {"lang": lang, "source": source}
+            inputl = request.POST.get('input')
+            data = {"lang": lang, "source": source, "input": inputl}
 
             data = {
                 'client_secret': CLIENT_SECRET,
                 'async': 0,
                 'source': source,
                 'lang': lang,
+                'input': inputl,
                 'time_limit': 5,
                 'memory_limit': 262144,
             }
