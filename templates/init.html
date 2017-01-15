@@ -30,6 +30,65 @@
     {
         background-color: #009999 !important;
     }
+    #notifications{
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 9999;
+	width: 400px;
+	/*transition: all 0.3s ease;*/
+}
+
+#notif-logo{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 40px;
+	width: 40px;
+	border-radius: 40px;
+	background: white;
+	/*color: ;*/
+	box-shadow: 0 0 20px black;
+	text-align: center;
+	font-size: 17px;
+	line-height: 40px;
+}
+
+#notif-logo:hover{
+	cursor: pointer;
+}
+
+#notif-logo:active{
+	opacity: 0.9;
+	transform: scale(0.9);
+	box-shadow: 0 0 15px black;
+}
+#notif-cont{
+	display: none;
+	width: 100%;
+	overflow-x: auto;
+	position: relative;
+	top: -50px;
+	border-radius: 5px;
+	box-shadow: 0 0 25px black;
+	transition: none !important;
+	background: white;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.notifs{
+	/*width: 100%;*/
+	height: 50px;
+	position: relative;
+	float: left;
+	/*background: white;*/
+	padding: 15px;
+	border-bottom: 0.3px solid lightgrey;
+	color: rgba(0,0,0,0.8);
+	font-size: 16px;
+}
+
   </style>
 </head>
 <div class="card-panel yellow lighten-2">.</div>
@@ -128,6 +187,7 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
         <th>Compile Status</th>
         <th>Time (sec)</th>
         <th>Memory (KB)</th>
+        <th>keywords</th>
       </tr>
     </thead>
     <tbody>
@@ -135,6 +195,41 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
   </table>
 </div>
 
+<!-- <div id="notifications">
+    <div id="notif-cont">
+        {% for notification in notifications %}
+            <div class="notifs">
+               <span>{{ notification.text }}</span>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="notif-logo">
+        <i class="glyphicon glyphicon-search" aria-hidden="false    "></i>
+    </div>
+</div>-->
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">See Results</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Top Search Results</h4>
+        </div>
+        <div class="modal-body" id="search_links">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 <!-- Formal footer -->
 <div class="footer" id="whoami">
     <div class="overlayer">
@@ -232,6 +327,16 @@ function getCookie(name) {
                   // Memory used
                   if(json['run_status']['memory_used']){ txt += "<td>"+json['run_status']['memory_used']+"</td></tr>";}
                   else {txt += "<td>"+ 'NA' +"</td></tr>";}
+                  if(json['links']){
+                    var search_div = document.getElementById('search_links');
+                    search_div.innerHTML = '<ul>';
+                    for (var i = 0; i < json['links'].length; i++) {
+                        var j = i+1;
+                        search_div.innerHTML += '<li><a href="' + json['links'][i] + '" target="_blank">'+ j +'</a></li>';
+                        // search_div.innerHTML += json['links'][i]
+                    }
+                    search_div.innerHTML += '</ul>';
+                  }
 
                   if(txt != ""){
                     $("#table").append(txt).removeClass("hidden");

@@ -2,3 +2,4 @@ Django
 requests
 gunicorn
 whitenoise
+Google-Search-API
