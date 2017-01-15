@@ -18,7 +18,6 @@ function terminal(el)
 <option value=R>R (RScript 3.0.2)</option>
 */
     if (value == 0) {
-
         textarea.value = '#include <stdio.h>\n\n\
         int main()\n\
         {\n\
@@ -33,7 +32,7 @@ function terminal(el)
             cout << "Hello World!" << endl;\n\
             return 0;\n\
         }';
-/*    } else if (value == 2) {
+    } else if (value == 2) {
         textarea.value = 'using System;\n\
         using System.Numerics;\n\
         class MyClass {\n\
@@ -45,23 +44,19 @@ function terminal(el)
                 for (var i = 0; i < N; i++) {\n\
                     System.Console.WriteLine("hello world");\n\
                 }\n\
-//                * /\n\n\
-
+                * /\n\n\
                 System.Console.WriteLine("Hello World!\n");\n\
             }\n\
         }';
     } else if (value == 3) { // go
         textarea.value = 'package main\n\n\
-
         import "fmt"\n\n\
-
         func main() {\n\
         	fmt.Println("Hello World!")\n\
         }';
     } else if (value == 4) {  // haskell
         textarea.value = 'module Main\n\
-          where\n\n\
-
+        where\n\n\
         main=putStrLn "Hello World!\n"';
     } else if (value == 5) { //java
 //        textarea.value = '/* IMPORTANT: Multiple classes and nested static classes are supported * /\n\n\
@@ -81,11 +76,10 @@ function terminal(el)
                 System.out.println("Hello World!");\n\
             }\n\
         }';
-    } else if (value == 6) { // lisp
+   */} else if (value == 6) { // lisp
         textarea.value = '(display "Hello World!")';
     } else if (value == 7) { // Objective-C
         textarea.value = '#include <iostream>\n\n\
-
         using namespace std;\n\
         int main()\n\
         {\n\
@@ -95,18 +89,18 @@ function terminal(el)
     } else if (value == 8) { // pascal
         textarea.value = 'program Hello;\n\
         begin\n\
-            writeln ('Hello World!')\n\
+            writeln (\'Hello World!\');\n\
         end.';
     } else if (value == 9) { // php
-        textarea.value = '<?php\n\\
+        textarea.value = '<?php\n\
         /*\n\
          * Read input from stdin and provide input before running code\n\
         fscanf(STDIN, "%s\n", $name);\n\
         echo "Hi, ".$name;\n\
-//       * /\n\
+        * /\n\
         echo "Hello World!";\n\
         ?>';
-*/    } else if (value == 10) {  // python
+    } else if (value == 10) {  // python
         textarea.value = '\'\'\'\n\
         # Read input from stdin and provide input before running code\n\
         name = raw_input(\'What is your name?\n\')\n\
@@ -123,7 +117,7 @@ print \'Hello World!\'\n\
 =end\n\
 print \'Hello World!\'';
     } else if (value == 12) {  // r
-        textarea.value = 'cat("Hello World!")';
+        textarea.value = 'cat("Hello World!")\n';
     }
 
 }
