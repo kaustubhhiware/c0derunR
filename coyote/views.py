@@ -4,7 +4,6 @@ from django.http import JsonResponse
 
 import requests
 from bs4 import BeautifulSoup
-from google import google as bing
 
 # Constants
 RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
