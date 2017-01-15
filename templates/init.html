@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="/static/img/logo.ico">
 
   <link href='/static/css/mystyle.css' rel='stylesheet' type='text/css'>
-  <script src="/static/js/terminal_fill.js" type="text/javascript"></script>  
+  <script src="/static/js/terminal_fill.js" type="text/javascript"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -61,8 +61,7 @@
         <ul class="nav navbar-nav" style="float:right;">
            <li><a  href="https://github.com/kaustubhhiware/c0derunR">Source</a></li>
            <li><a  href="/htmlviewer">HTML viewer</a></li>
-           <!-- <li><a  href="#">Online Code Compiler & Player</a></li> -->
-           <!-- Isko neeche bhi daal sakte hai-->
+           <!-- <li><a  href="#">Online IDE</a></li> -->
            <li class="dropdown">
              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers <span class="caret"></span></a>
              <ul class="dropdown-menu">
@@ -108,7 +107,7 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
 
           <fieldset class="form-group">
             <label for="code-form">Code</label>
-            <textarea class="form-control" id="source" rows="15">
+            <textarea class="form-control" id="source" rows="11">
 #include <stdio.h>
 
 int main()
@@ -117,6 +116,13 @@ int main()
     return 0;
 }            </textarea>
 
+          </fieldset>
+
+          <fieldset class="form-group">
+            <label for="code-form" class="togvis">Custom Input</label>
+            <p>
+                <textarea class="form-control" id="input_text" rows="1"></textarea>
+            </p>
           </fieldset>
 
        <button type="submit" id="submit" class="waves-effect waves-light btn">Run</button>
@@ -181,6 +187,17 @@ int main()
 </style>
 
  <script>
+
+// Toggle custom input
+$(function(){
+
+    $('label.togvis').click(function() {
+    $(this).parents("fieldset").find("*:not('label')").toggle();
+    return true;
+});
+
+});
+
 //For getting CSRF token
 function getCookie(name) {
        var cookieValue = null;
@@ -208,7 +225,7 @@ function getCookie(name) {
    var e = document.getElementById("lang");
    var lang = e.options[e.selectedIndex].value;
    var source = $('#source').val();
-
+   var input = $('#input_text').val();
    // This is the Ajax post.Observe carefully.
   //  It is nothing but details of where_to_post,what_to_post
 
@@ -217,7 +234,8 @@ function getCookie(name) {
            type : "POST", // http method
            data : { csrfmiddlewaretoken : csrftoken,
            lang : lang,
-           source : source
+           source : source,
+           input :  input
            }, // data sent with the post request
 
           success: function(json){
