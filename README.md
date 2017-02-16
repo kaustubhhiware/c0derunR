@@ -24,7 +24,7 @@ they develop it. Clicking on `HTMLViewer` will blow your mind! **
 
 Currently deployed commit is `33fe2cc`. Deployed here -  http://c0derunr.pythonanywhere.com .
 
-**\*Convenient screenshot\***
+## Convenient screenshot
 
 ![kaun_link_par_click_kare](static/img/screenshot.png)
 
