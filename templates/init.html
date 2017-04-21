@@ -323,10 +323,11 @@ function getCookie(name) {
    $.ajax({
            url : window.location.href, // the endpoint,commonly same url
            type : "POST", // http method
-           data : { csrfmiddlewaretoken : csrftoken,
-           lang : lang,
-           source : source,
-           input :  input
+           data : {
+            "csrfmiddlewaretoken" : csrftoken,
+            "lang" : lang,
+            "source" : source,
+            "input" :  input
            }, // data sent with the post request
 
           success: function(json){
@@ -349,13 +350,13 @@ function getCookie(name) {
                   // Memory used
                   if(json['run_status']['memory_used']){ txt += "<td>"+json['run_status']['memory_used']+"</td></tr>";}
                   else {txt += "<td>"+ 'NA' +"</td></tr>";}
-                  if(json['links']){
+                  if(json['debug_urls']){
                     var search_div = document.getElementById('search_links');
                     search_div.innerHTML = '<ul>';
-                    for (var i = 0; i < json['links'].length; i++) {
-                        var j = i+1;
-                        search_div.innerHTML += '<li><a href="' + json['links'][i] + '" target="_blank">'+ j +'</a></li>';
-                        // search_div.innerHTML += json['links'][i]
+                    for (var i = 0; i < json['debug_urls'].length; i++) {
+                        var j = json['descriptions'][i].toString();
+                        search_div.innerHTML += '<li><a href="' + json['debug_urls'][i] + '" target="_blank">' + j +'</a></li>';
+                        // search_div.innerHTML += json['debug_urls'][i]
                     }
                     search_div.innerHTML += '</ul>';
                   }
