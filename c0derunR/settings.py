@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'c0derunR',
+    'coyote',
 ]
 
 MIDDLEWARE_CLASSES = [
