@@ -19,11 +19,6 @@ BING_URL = 'http://api.cognitive.microsoft.com/bing/v5.0/'
 http_proxy = "http://10.3.100.207:8080"
 https_proxy = "http://10.3.100.207:8080"
 
-PROXIES = {
-    "http": http_proxy,
-    "https": https_proxy
-}
-
 
 def get_domain(url):
     """
@@ -56,13 +51,13 @@ def home(request):
             s = requests.Session()
             s.mount("http://", requests.adapters.HTTPAdapter(max_retries=5))
             s.mount("https://", requests.adapters.HTTPAdapter(max_retries=5))
-            r = s.post(RUN_URL, data=data, proxies=PROXIES)
+            r = s.post(RUN_URL, data=data)
             # extract important key words using azure api (of course I have done some smart things for it!)
             key_words = []
             compile_status = r.json()['compile_status'].strip()
             current_json = r.json()
             if compile_status != 'OK':
-                nlp_req = s.get(AZURE_NLP, data={'inputText': str(compile_status)}, proxies=PROXIES)
+                nlp_req = s.get(AZURE_NLP, data={'inputText': str(compile_status)})
                 content = BeautifulSoup(nlp_req.text, 'lxml')
                 keywords_class = content.find_all('div', attrs={'class': 'row top-buffer'})[1]
                 key_words = keywords_class.find_all('div')[1].find_all('mark')
@@ -74,7 +69,7 @@ def home(request):
                 desc = []
                 import re
                 for word in reversed(key_words):
-                    page = s.get("https://www.google.co.in/search?q=" + word, proxies=PROXIES)
+                    page = s.get("https://www.google.co.in/search?q=" + word)
                     soup = BeautifulSoup(page.content, 'lxml')
                     links_ = soup.findAll("a")
                     for link in soup.find_all("a", href=re.compile("(?<=/url\?q=)(htt.*://.*)")):
