@@ -1,4 +1,6 @@
 Django
+bs4
 requests
 gunicorn
 whitenoise
+django-debug-toolbar
