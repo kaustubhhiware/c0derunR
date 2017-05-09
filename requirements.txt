@@ -4,3 +4,4 @@ requests
 gunicorn
 whitenoise
 django-debug-toolbar
+lxml
