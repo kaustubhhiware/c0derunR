@@ -1,11 +1,11 @@
-# c0derunR [WIP]
+# c0derunR
 
 > Online Code Compliler / Interpreter.
 
 ![logo_dekho_logo](static/img/logo-red.PNG)
 
 An attempt at cleaner, minimal UI for coding, because no distractions. Made in
-python. [Website](http://c0derunr.pythonanywhere.com).
+python. [Website](http://c0derunr.herokuapp.com).
 
 Online platforms like HackerEarth, HackerRank, Codechef have their own IDE's,
 but we aim for minimal disturbance.
@@ -16,13 +16,13 @@ anything! Our results modal will do that for you ! ~~[WIP]~~
 * Template code for each language. ~~[Works on localhost, WIP]~~
 
 * While we were at it, we thought why not allow people to see their webpages as
-they develop it. Clicking on `HTMLViewer` will blow your mind! **
-
- ** [SFW] [SFL]
+they develop it. Clicking on `HTMLViewer` will blow your mind!
 
 * ToDo : Suggestive text for an immersive experience.
 
-Currently deployed commit is `33fe2cc`. Deployed here -  http://c0derunr.pythonanywhere.com .
+Deployed here : http://c0derunr.herokuapp.com
+
+Not so optimised mirror: http://c0derunr.pythonanywhere.com
 
 ## Convenient screenshot
 
