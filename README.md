@@ -11,9 +11,9 @@ Online platforms like HackerEarth, HackerRank, Codechef have their own IDE's,
 but we aim for minimal disturbance.
 
 * Supports debugging with appropriate messages, and you don't need to google
-anything! Our results modal will do that for you ! [WIP]
+anything! Our results modal will do that for you ! ~~[WIP]~~
 
-* Template code for each language. [Works on localhost, WIP].
+* Template code for each language. ~~[Works on localhost, WIP]~~
 
 * While we were at it, we thought why not allow people to see their webpages as
 they develop it. Clicking on `HTMLViewer` will blow your mind! **
