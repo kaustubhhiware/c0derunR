@@ -10,12 +10,13 @@ from bs4 import BeautifulSoup
 RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
 CLIENT_SECRET = '4dfd962b7931b9b7833159cf6a38dde05f88ef54'
 
-AZURE_NLP = u'https://text-analytics-demo.azurewebsites.net/Demo/Analyze'
+AZURE_NLP = u'https://azure.microsoft.com/en-in/cognitive-services/demo/textanalyticsapi/'
+AZURE_DEMO = u'https://azure.microsoft.com/en-in/services/cognitive-services/text-analytics/'
 BING_SEARCH_API_KEY = '19d0dfef006d49bb9e167fcc66d1db77'
 
 BING_URL = 'http://api.cognitive.microsoft.com/bing/v5.0/'
 
-## Proxy declaration for KGP
+# Proxy declaration for KGP
 http_proxy = "http://10.3.100.207:8080"
 https_proxy = "http://10.3.100.207:8080"
 
@@ -52,14 +53,24 @@ def home(request):
             s.mount("http://", requests.adapters.HTTPAdapter(max_retries=5))
             s.mount("https://", requests.adapters.HTTPAdapter(max_retries=5))
             r = s.post(RUN_URL, data=data)
-            # extract important key words using azure api (of course I have done some smart things for it!)
+            # extract important key words using azure api
             key_words = []
             compile_status = r.json()['compile_status'].strip()
             current_json = r.json()
             if compile_status != 'OK':
-                nlp_req = s.get(AZURE_NLP, data={'inputText': str(compile_status)})
+                demo_page = BeautifulSoup(s.get(AZURE_DEMO, proxies=http_proxy).text, 'lxml')
+                token = demo_page.find('input', attrs={
+                    'name': '__RequestVerificationToken',
+                    'type': 'hidden'}).get('value')
+
+                nlp_req = s.post(AZURE_NLP, data={
+                    'InputText': str(compile_status),
+                    '__RequestVerificationToken': token})
                 content = BeautifulSoup(nlp_req.text, 'lxml')
-                keywords_class = content.find_all('div', attrs={'class': 'row top-buffer'})[1]
+                print(content)
+                keywords_class = content.find_all('div',
+                                                  attrs={'class':
+                                                         'row top-buffer'})[1]
                 key_words = keywords_class.find_all('div')[1].find_all('mark')
                 for idx in range(len(key_words)):
                     key_words[idx] = key_words[idx].text
