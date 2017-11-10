@@ -5,3 +5,4 @@ gunicorn
 whitenoise
 django-debug-toolbar
 lxml
+rake-nltk
