@@ -48,7 +48,6 @@ def home(request):
             s.mount("https://", requests.adapters.HTTPAdapter(max_retries=5))
             r = s.post(RUN_URL, data=data)
 
-            # extract important key words using azure api
             key_words = []
             compile_status = r.json()['compile_status'].strip()
             current_json = r.json()
