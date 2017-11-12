@@ -37,7 +37,6 @@
 	right: 50px;
 	z-index: 9999;
 	width: 400px;
-	/*transition: all 0.3s ease;*/
 }
 
 #notif-logo{
@@ -48,7 +47,6 @@
 	width: 40px;
 	border-radius: 40px;
 	background: white;
-	/*color: ;*/
 	box-shadow: 0 0 20px black;
 	text-align: center;
 	font-size: 17px;
@@ -79,11 +77,9 @@
 }
 
 .notifs{
-	/*width: 100%;*/
 	height: 50px;
 	position: relative;
 	float: left;
-	/*background: white;*/
 	padding: 15px;
 	border-bottom: 0.3px solid lightgrey;
 	color: rgba(0,0,0,0.8);
@@ -120,17 +116,6 @@
         <ul class="nav navbar-nav" style="float:right;">
            <li><a  href="https://github.com/kaustubhhiware/c0derunR">Source</a></li>
            <li><a  href="/htmlviewer">HTML viewer</a></li>
-           <!-- <li><a  href="#">Online IDE</a></li> -->
-           <!--
-           <li class="dropdown">
-             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Developers <span class="caret"></span></a>
-             <ul class="dropdown-menu">
-               <li><a href="https://github.com/demfier">Gaurav</a></li>
-               <li><a href="https://github.com/kaustubhhiware">Kaustubh</a></li>
-               <li><a href="https://github.com/kingofools">Surya</a></li>
-             </ul>
-           </li>
-       -->
          </ul>
        </div>
      </div>
@@ -210,19 +195,6 @@ int main()
     </tbody>
   </table>
 </div>
-
-<!-- <div id="notifications">
-    <div id="notif-cont">
-        {% for notification in notifications %}
-            <div class="notifs">
-               <span>{{ notification.text }}</span>
-            </div>
-        {% endfor %}
-    </div>
-    <div id="notif-logo">
-        <i class="glyphicon glyphicon-search" aria-hidden="false    "></i>
-    </div>
-</div>-->
 
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Debug !</button>
 
@@ -356,7 +328,6 @@ function getCookie(name) {
                     for (var i = 0; i < json['debug_urls'].length; i++) {
                         var j = json['descriptions'][i].toString();
                         search_div.innerHTML += '<li><a href="' + json['debug_urls'][i] + '" target="_blank">' + j +'</a></li>';
-                        // search_div.innerHTML += json['debug_urls'][i]
                     }
                     search_div.innerHTML += '</ul>';
                   }
