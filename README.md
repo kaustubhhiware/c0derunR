@@ -36,6 +36,11 @@ You don't need to really install anything. `run.sh` takes care of everything. Re
 
 Your contributions are always welcome :smile: ! Please have a look at the [contribution guidelines](CONTRIBUTING.md) first.
 
+Before working on an issue / feature, it is **crucial** that you're assigned the task on a GitHub issue.
+* If a relevant issue already exists, discuss on the issue and get yourself assigned on GitHub.
+* If no relevant issue exists, open a new issue and get it assigned to yourself on GitHub.
+Please proceed with a Pull Request only after you're assigned. It'd be a waste of your time as well as ours if you have not contacted us before hand when working on some feature / issue.
+
 ## Humans involved
 
 * [Gaurav Sahu](https://github.com/demfier)
