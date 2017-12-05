@@ -21,7 +21,7 @@ function terminal(el)
         textarea.value = '#include <stdio.h>\n\n\
         int main()\n\
         {\n\
-            printf("Hello World!\n");\n\
+            printf("Hello World!");\n\
             return 0;\n\
         }';
     } else if (value == 1) {
@@ -42,10 +42,10 @@ function terminal(el)
                 var line1 = System.Console.ReadLine().Trim();\n\
                 var N = Int32.Parse(line1);\n\
                 for (var i = 0; i < N; i++) {\n\
-                    System.Console.WriteLine("hello world");\n\
+                    System.Console.WriteLine("Hello World");\n\
                 }\n\
-                * /\n\n\
-                System.Console.WriteLine("Hello World!\n");\n\
+                */\n\n\
+                System.Console.WriteLine("Hello World!");\n\
             }\n\
         }';
     } else if (value == 3) { // go
@@ -55,35 +55,37 @@ function terminal(el)
         	fmt.Println("Hello World!")\n\
         }';
     } else if (value == 4) {  // haskell
-        textarea.value = 'module Main\n\
-        where\n\n\
-        main=putStrLn "Hello World!\n"';
+        textarea.value = 'module Main where\n\
+        main=putStrLn "Hello World!"';
     } else if (value == 5) { //java
-//        textarea.value = '/* IMPORTANT: Multiple classes and nested static classes are supported * /\n\n\
+        //        textarea.value = '/* IMPORTANT: Multiple classes and nested static classes are supported * /\n\n\
 
         /*\n\
          * uncomment this if you want to read input.\n\
         //imports for BufferedReader\n\
         import java.io.BufferedReader;\n\
         import java.io.InputStreamReader;\n\n\
-
         //import for Scanner and other utility  classes\n\
         import java.util.*;\n\
 //       * /\n\n\
-
         class TestClass {\n\
             public static void main(String args[] ) throws Exception {\n\
                 System.out.println("Hello World!");\n\
             }\n\
         }';
-   */} else if (value == 6) { // lisp
-        textarea.value = '(display "Hello World!")';
+   */
+        textarea.value = 'public class TestClass {\n\
+            public static void main(String[] args) {\n\
+                System.out.println("Hello World!");\n\
+            }\n\
+        }';
+    } else if (value == 6) { // lisp
+        textarea.value = '(print "Hello World")';
     } else if (value == 7) { // Objective-C
-        textarea.value = '#include <iostream>\n\n\
-        using namespace std;\n\
+        textarea.value = '#include <stdio.h>\n\n\
         int main()\n\
         {\n\
-            cout << "Hello World!" << endl;\n\
+            printf("Hello World!");\n\
             return 0;\n\
         }';
     } else if (value == 8) { // pascal
@@ -97,7 +99,7 @@ function terminal(el)
          * Read input from stdin and provide input before running code\n\
         fscanf(STDIN, "%s\n", $name);\n\
         echo "Hi, ".$name;\n\
-        * /\n\
+        */\n\
         echo "Hello World!";\n\
         ?>';
     } else if (value == 10) {  // python
