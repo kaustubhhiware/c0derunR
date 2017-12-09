@@ -25,9 +25,9 @@ def get_domain(url):
 
 def home(request):
     """
-    it takes necessary data from frontend request and sent it to hackerearth API
-    if the code doesnt compiles, then it takes necessary keyword from error messages 
-    and google the result with some regrex matching and filtering to get required debug links 
+    it takes the inputted code from frontend request and sends it to hackerearth API
+    if the code doesn't compile, then it finds the necessary keyword from error messages 
+    and searches for it on google with regex matching and suggests debug links 
     """
     if request.method == 'POST':
         # POST goes here . is_ajax is must to capture ajax requests.
@@ -93,6 +93,6 @@ def home(request):
 
 def codeplay(request):
     """
-    Given request return HttpResponse with that rendered text
+    re-renders the codeplay page
     """
     return render(request, 'codeplay.html')
