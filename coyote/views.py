@@ -18,7 +18,7 @@ CLIENT_SECRET = '4dfd962b7931b9b7833159cf6a38dde05f88ef54'
 def get_domain(url):
     """
     Parameters:
-    url[tuple] => uniform resource locator of website
+    url[string] => uniform resource locator of website
     --------------------------------------------
     Returns:
     parsed_uri.netloc [string] => the domain name in url
