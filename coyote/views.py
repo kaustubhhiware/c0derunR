@@ -22,9 +22,10 @@ def get_domain(url):
     --------------------------------------------
     Returns:
     parsed_uri.netloc [string] => the domain name in url
-    """
 
-    #Given a url return its domain
+    Logic:
+    Given a url return its domain
+    """
 
     parsed_uri = urlparse(url)
     return(parsed_uri.netloc)
@@ -37,12 +38,14 @@ def home(request):
     --------------------------------------------
     Returns:
     render(request, 'init.html') [HttpResponse] => init.html is returned as HttpResponse
+
+    Logic:
+    it takes the inputted code from frontend request and sends it to hackerearth API
+    if the code doesn't compile, then it finds the necessary keyword from error messages 
+    and searches for it on google with regex matching and suggests debug links 
     """
 
-    #it takes the inputted code from frontend request and sends it to hackerearth API
-    #if the code doesn't compile, then it finds the necessary keyword from error messages 
-    #and searches for it on google with regex matching and suggests debug links 
-
+    
     if request.method == 'POST':
         # POST goes here . is_ajax is must to capture ajax requests.
         if request.is_ajax():
@@ -111,8 +114,12 @@ def codeplay(request):
     request[HttpRequest] 
     --------------------------------------------
     Returns:
-    render(request, 'codeplay.html') [HttpResponse] => codeplay.html is returned as HttpResponse
+    render(request, 'codeplay.html') [HttpResponse] 
+                => codeplay.html is returned as HttpResponse
+
+    Logic:
+    re-renders the codeplay page
     """
 
-    #re-renders the codeplay page
+    
     return render(request, 'codeplay.html')
