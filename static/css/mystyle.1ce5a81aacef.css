@@ -1,0 +1,39 @@
+/* remove bootstrap padding so images sit right next to each other with no gaps */
+.col-lg-3, .col-md-4, .col-sm-6, .col-xs-12 {
+      padding: 0 25px 25px 25px;
+    }
+
+/* footer formatting*/
+.footer h4{
+    margin: 0px 0 20px;
+}
+.footer{
+    background-color: #2f2f2f; /* Black Gray */
+    background-attachment: fixed;
+    position: relative;
+}
+.heart{
+    color: #FF3B30;
+}
+.footer .overlayer{
+    background-color: rgba(27, 27, 27, 0.7);
+    position: relative;
+}
+.footer .credits {
+    margin-top: 0px;
+    padding: 0;
+    text-align: center;
+    color: #DBDBDB;
+}
+.footer .credits a{
+    color: #FFFFFF;
+}
+.credits{
+    display: block;
+    margin: 15px 0;
+    color: #ddd;
+    opacity: .8;
+}
+.credits a{
+    color: #FFFFFF;
+}

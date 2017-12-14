@@ -1,7 +1,17 @@
+{% load staticfiles %}
+<script src="{% static "/static/js/my.js" %}"></script>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="static/js/my.js"></script>
+</head>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>c0derunR</title>
+  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,9 +102,9 @@
 
   </style>
 </head>
+ {% load static %}
 <div class="card-panel yellow lighten-2">.</div>
  <body>
-
    <script>
    	function eraseText() {
     document.getElementById("output").value = "";
@@ -178,6 +188,7 @@ h2, .waves-effect, .nav, .form-group, .table, .page-footer {
 
           <fieldset class="form-group">
             <label for="code-form">Code</label>
+
             <textarea class="form-control" id="source" rows="11">
 #include <stdio.h>
 
