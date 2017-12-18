@@ -1,9 +1,14 @@
 {% load staticfiles %}
-<script src="{% static "/static/js/my.js" %}"></script>
 
+
+<script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.0.0.min.js">
+</script> 
+
+
+<script src="{% static "/static/js/my.js" %}"></script>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="static/js/my.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="/static/js/my.js"></script>
 </head>
 
 
@@ -36,77 +41,71 @@
         vertical-align:baseline;
         line-height: 20px;
     }
-
     .theme
     {
         background-color: #009999 !important;
     }
     #notifications{
-	position: fixed;
-	bottom: 50px;
-	right: 50px;
-	z-index: 9999;
-	width: 400px;
-	/*transition: all 0.3s ease;*/
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 9999;
+  width: 400px;
+  /*transition: all 0.3s ease;*/
 }
-
 #notif-logo{
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	height: 40px;
-	width: 40px;
-	border-radius: 40px;
-	background: white;
-	/*color: ;*/
-	box-shadow: 0 0 20px black;
-	text-align: center;
-	font-size: 17px;
-	line-height: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background: white;
+  /*color: ;*/
+  box-shadow: 0 0 20px black;
+  text-align: center;
+  font-size: 17px;
+  line-height: 40px;
 }
-
 #notif-logo:hover{
-	cursor: pointer;
+  cursor: pointer;
 }
-
 #notif-logo:active{
-	opacity: 0.9;
-	transform: scale(0.9);
-	box-shadow: 0 0 15px black;
+  opacity: 0.9;
+  transform: scale(0.9);
+  box-shadow: 0 0 15px black;
 }
 #notif-cont{
-	display: none;
-	width: 100%;
-	overflow-x: auto;
-	position: relative;
-	top: -50px;
-	border-radius: 5px;
-	box-shadow: 0 0 25px black;
-	transition: none !important;
-	background: white;
-	max-height: 500px;
-	overflow-y: auto;
+  display: none;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -50px;
+  border-radius: 5px;
+  box-shadow: 0 0 25px black;
+  transition: none !important;
+  background: white;
+  max-height: 500px;
+  overflow-y: auto;
 }
-
 .notifs{
-	/*width: 100%;*/
-	height: 50px;
-	position: relative;
-	float: left;
-	/*background: white;*/
-	padding: 15px;
-	border-bottom: 0.3px solid lightgrey;
-	color: rgba(0,0,0,0.8);
-	font-size: 16px;
+  /*width: 100%;*/
+  height: 50px;
+  position: relative;
+  float: left;
+  /*background: white;*/
+  padding: 15px;
+  border-bottom: 0.3px solid lightgrey;
+  color: rgba(0,0,0,0.8);
+  font-size: 16px;
 }
-
   </style>
 </head>
  {% load static %}
 <div class="card-panel yellow lighten-2">.</div>
  <body>
    <script>
-   	function eraseText() {
+    function eraseText() {
     document.getElementById("output").value = "";
     }
    </script>
@@ -299,17 +298,13 @@ int main()
 </style>
 
  <script>
-
 // Toggle custom input
 $(function(){
-
     $('label.togvis').click(function() {
     $(this).parents("fieldset").find("*:not('label')").toggle();
     return true;
 });
-
 });
-
 //For getting CSRF token
 function getCookie(name) {
        var cookieValue = null;
@@ -326,11 +321,8 @@ function getCookie(name) {
  }
  return cookieValue;
 }
-
-
 //For doing AJAX post
  $("#submit").click(function(e) {
-
    e.preventDefault();
    var csrftoken = getCookie('csrftoken');
    //  var lang = $('#lang').val();
@@ -340,7 +332,6 @@ function getCookie(name) {
    var input = $('#input_text').val();
    // This is the Ajax post.Observe carefully.
   //  It is nothing but details of where_to_post,what_to_post
-
    $.ajax({
            url : window.location.href, // the endpoint,commonly same url
            type : "POST", // http method
@@ -350,11 +341,9 @@ function getCookie(name) {
             "source" : source,
             "input" :  input
            }, // data sent with the post request
-
           success: function(json){
               if(json){
                   var txt = "";
-
                   // Output
                   if(json['run_status']['output']){ txt += "<tr><td>"+json['run_status']['output']+"</td>";}
                   else {txt += "<tr><td>"+ 'NA' +"</td>";}
@@ -381,14 +370,12 @@ function getCookie(name) {
                     }
                     search_div.innerHTML += '</ul>';
                   }
-
                   if(txt != ""){
                     $("#table").append(txt).removeClass("hidden");
                   }
               }
           },
           // Display JSON data in table: END
-
            // handle a non-successful response
            error : function(xhr,errmsg,err) {
                // directly append this to planned terminal
@@ -396,7 +383,6 @@ function getCookie(name) {
            }
     });
   });
-
 </script>
 
 </body>
