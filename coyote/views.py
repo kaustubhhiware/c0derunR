@@ -12,9 +12,9 @@ from rake_nltk import Rake
 
 # Constants
 RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
-CLIENT_SECRET = '4dfd962b7931b9b7833159cf6a38dde05f88ef54'
+CLIENT_SECRET = '41662da152e210d7610787a8596e45cda8638dde'
 
-
+    
 def get_domain(url):
     """
     Parameters:
