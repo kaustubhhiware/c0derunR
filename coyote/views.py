@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.http import JsonResponse
-from urlparse import urlparse
+from urllib.parse import urlparse
+# from urlparse import urlparse
 
 # for sending requests and parsing response
 import requests
@@ -14,7 +15,7 @@ from rake_nltk import Rake
 RUN_URL = u'https://api.hackerearth.com/v3/code/run/'
 CLIENT_SECRET = '41662da152e210d7610787a8596e45cda8638dde'
 
-    
+
 def get_domain(url):
     """
     Parameters:
@@ -33,17 +34,17 @@ def get_domain(url):
 def home(request):
     """
     Parameters:
-    request[HttpRequest] 
+    request[HttpRequest]
     --------------------------------------------
     Returns:
     render(request, 'init.html') [HttpResponse] => init.html is returned as HttpResponse
     Logic:
     it takes the inputted code from frontend request and sends it to hackerearth API
-    if the code doesn't compile, then it finds the necessary keyword from error messages 
-    and searches for it on google with regex matching and suggests debug links 
+    if the code doesn't compile, then it finds the necessary keyword from error messages
+    and searches for it on google with regex matching and suggests debug links
     """
 
-    
+
     if request.method == 'POST':
         # POST goes here . is_ajax is must to capture ajax requests.
         if request.is_ajax():
@@ -109,14 +110,13 @@ def home(request):
 def codeplay(request):
     """
     Parameters:
-    request[HttpRequest] 
+    request[HttpRequest]
     --------------------------------------------
     Returns:
-    render(request, 'codeplay.html') [HttpResponse] 
+    render(request, 'codeplay.html') [HttpResponse]
                 => codeplay.html is returned as HttpResponse
     Logic:
     re-renders the codeplay page
     """
-    
+
     return render(request, 'codeplay.html')
-    
