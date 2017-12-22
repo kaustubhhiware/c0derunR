@@ -1,1 +1,3 @@
 *.pyc
+./codemirror
+!./static/codemirror

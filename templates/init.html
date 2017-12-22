@@ -91,6 +91,9 @@
 }
 
   </style>
+  <script src="/static/codemirror/lib/codemirror.js"></script>
+  <link rel="stylesheet" href="/static/codemirror/lib/codemirror.css">
+  <script src="/static/codemirror/mode/javascript/javascript.js"></script>
 </head>
 <div class="card-panel yellow lighten-2">.</div>
  <body>
@@ -186,9 +189,13 @@ int main()
     printf("Hello World!");
     return 0;
 }            </textarea>
+              <script type="text/javascript">
 
+    var editor = CodeMirror.fromTextArea(document.getElementById("source"), {
+    });
+
+          </script>
           </fieldset>
-
           <fieldset class="form-group">
             <label for="code-form" class="togvis">Custom Input</label>
             <p>
