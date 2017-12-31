@@ -8,9 +8,9 @@
 
 	#menuBar{
 		width: 100%;
-		height: 50px;
-		background-color:#009999;
-		border-bottom: 1px solid grey;
+		height: 64px;
+		background-color:#F8F8F8;
+		border-bottom: 4px solid #E8DB6A;
 	}
 
 	#logo{
@@ -22,7 +22,7 @@
 
   #forkMe{
 		float: left;
-		padding:10px 10px 0 50px;
+		padding:17px 10px 0 50px;
 	}
 
   	#forkMe img{
