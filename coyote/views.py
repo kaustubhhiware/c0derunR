@@ -120,3 +120,8 @@ def codeplay(request):
     """
 
     return render(request, 'codeplay.html')
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> 739182d824e1351b831845c2984c481daab71932
