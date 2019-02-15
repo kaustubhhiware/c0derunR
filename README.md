@@ -6,6 +6,8 @@
 
 ![logo_dekho_logo](static/img/logo-red.PNG)
 
+## Note: This project is not maintained currently.
+
 An attempt at cleaner, minimal UI for coding, because no distractions. Made in
 python. [Live Website](http://c0derunr.herokuapp.com).
 
